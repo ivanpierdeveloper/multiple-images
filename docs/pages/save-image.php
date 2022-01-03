@@ -23,9 +23,9 @@
                     $json .= '{
                         "id": 101,
                         "email" : "ivanpier@gmail.com",
-                        "usr" : 200,
+                        "usr" : "ivanpier",
                         "psw" : "abc123",
-                        "age" : "22",
+                        "age" : 44,
                         "method" : "POST",
                         "avatar" : "'.$file_name.'"
                     },';
