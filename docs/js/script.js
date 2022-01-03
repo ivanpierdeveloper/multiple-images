@@ -23,11 +23,13 @@ function multipleImage() {
             "file size": multiple_image.files[0].size,
             "file type": multiple_image.files[0].type
         })
+        // il controllo è solo sul primo file, si può applicare a tutti i file caricati
         if (multiple_image.files[0].type != "image/png") {
             console.error("Non è compatibile");
             fnc.showMyAlert("avviso", "formato non compatibile, solo png", 'var(--danger)', 'var(--warning)', 'var(--white)', 'var(--dark)');
             return;
         } else {
+            // il controllo è solo sul primo file, si può applicare a tutti i file caricati
             if (multiple_image.files[0].size > 120000) {
                 console.error("Dimensioni superiori a 120KB");
                 fnc.showMyAlert("avviso", "dimensioni superiori a 120kb", 'var(--danger)', 'var(--warning)', 'var(--white)', 'var(--dark)');
