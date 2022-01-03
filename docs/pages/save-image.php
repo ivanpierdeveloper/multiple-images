@@ -11,6 +11,7 @@
                 // throw new Exception("nuovo messaggio METHOD POST", 154);
                 $POST = filter_var_array($_POST, FILTER_SANITIZE_STRING);
                 // function copy
+                $id = 0;
                 $json = "[";
                 for($i = 0; $i < $POST['numImage']; $i++) {
                     $file = $_FILES['images'.$i];
@@ -21,14 +22,15 @@
                     copy($_FILES['images'.$i]['tmp_name'], $path_folder);
                     chmod($path_folder, 777);
                     $json .= '{
-                        "id": 101,
-                        "email" : "ivanpier@gmail.com",
-                        "usr" : "ivanpier",
-                        "psw" : "abc123",
-                        "age" : 44,
+                        "id": 10'.$id.',
+                        "email" : "ivanpier_'.$id.'@gmail.com",
+                        "usr" : "ivanpier-'.$id.'",
+                        "psw" : "abc123-'.$id.'",
+                        "age" : 4'.$id.',
                         "method" : "POST",
                         "avatar" : "'.$file_name.'"
                     },';
+                    $id += 1;
                 }
                 $replace = substr_replace($json, "", -1);
                 $replace .= ']';
