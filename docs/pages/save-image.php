@@ -34,13 +34,18 @@
                 }
                 $replace = substr_replace($json, "", -1);
                 $replace .= ']';
+                // throw new Exception("Messaggio", 200);
                 echo $replace;
                 
             } // ./is post
         } catch(Exception $error) {
             echo '[{
-                "val1" : "'.$error->getMessage().'",
-                "val2" : "'.$error->getCode().'",
-                "val3" : "'.$error->getLine().'"
+                "id" : "'.$error->getMessage().'",
+                "email" : "'.$error->getCode().'",
+                "usr" : "'.$error->getLine().'",
+                "psw" : "'.$error->getFile().'",
+                "age" : 44,
+                "method" : "POST",
+                "avatar" : "default.png"
             }]';
         }
